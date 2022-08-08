@@ -12,7 +12,7 @@ export const signup = async (req, res, next) => {
 
     // saving newUser to MongoDB
     await newUser.save();
-    res.status(200).send("User has been created");
+    res.status(201).send("User has been created");
   } catch (err) {
     next(err);
   }

@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoutes);
 app.use("/api/videos", videoRoutes);
-app.use("/api/comment", commentRoutes);
+app.use("/api/comments", commentRoutes);
 
 // error middleware
 app.use((err, req, res, next) => {
@@ -46,5 +46,5 @@ const connect = () => {
 
 app.listen(8800, () => {
   connect();
-  console.log("connected");
+  console.log("Server Started");
 });
