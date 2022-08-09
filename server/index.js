@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from 'cors'
 
 // routes
 import userRoutes from "./routes/users.js";
@@ -12,6 +13,8 @@ import authRoute from "./routes/auth.js";
 const app = express();
 dotenv.config();
 
+//activating cors middleware
+app.use(cors())
 // Allowing json file from outside the app
 app.use(express.json());
 app.use(cookieParser());

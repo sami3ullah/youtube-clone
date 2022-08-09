@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import BestOfIcons from "./BestOfIcons";
 import SignUp from "../SignUp/SignUp";
 import { Hr, Title, Item } from "./styled/MenuIcons.styledcomponent";
@@ -12,18 +13,24 @@ import HistoryIcon from "@mui/icons-material/History";
 function MenuIcons({ darkMode, setDarkMode }) {
   return (
     <>
-      <Item>
-        <HomeIcon />
-        Home
-      </Item>
-      <Item>
-        <ExploreIcon />
-        Explore
-      </Item>
-      <Item>
-        <SubscriptionsIcon />
-        Subscriptions
-      </Item>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <HomeIcon />
+            Home
+          </Item>
+        </Link>
+        <Link to="explore" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <ExploreIcon />
+            Explore
+          </Item>
+        </Link>
+        <Link to="subscriptions" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <SubscriptionsIcon />
+            Subscriptions
+          </Item>
+        </Link>
       <Hr />
       <Item>
         <VideoLibraryIcon />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   Container,
   Img,
@@ -10,26 +10,40 @@ import {
   Info,
 } from "./styled/Card.styledcomponent";
 import { Link } from "react-router-dom";
+import {format} from "timeago.js";
+import {getUserDetails} from "../../api/user.js";
 
-function Card({ type }) {
+function Card({ type, video }) {
+
+  const [userDetails, setUserDetails] = useState({});
+
+  //  get the videos for the page
+  useEffect(() => {
+    (async () => {
+      const response = await getUserDetails(video.userId);
+      setUserDetails(response);
+    })()
+  }, [video.userId])
+
+  console.log(userDetails)
   return (
     <Link to="/video/test" style={{ textDecoration: "none" }}>
       <Container type={type}>
         <Img
           type={type}
-          src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-          alt="videos"
+          src={video.imgUrl}
+          alt={video.title}
         />
         <Details type={type}>
           <ChannelImg
             type={type}
-            src="https://yt3.ggpht.com/WxarVlppYPZR8E1xW-cCoWaFUyA7oboRhXOfZMktMwEOT_yT7vTR50Cl8Gyx-qnE9hDJr2DOwQ=s68-c-k-c0x00ffffff-no-rj"
-            alt="Channel image"
+            src={userDetails.img}
+            alt={userDetails.name}
           />
           <Texts>
-            <Title>Beautiful Mount Fuji, Japan</Title>
-            <ChannelName>Randomzie</ChannelName>
-            <Info>208,017 view . 1 day ago </Info>
+            <Title>{video.title}</Title>
+            <ChannelName>{userDetails.name}</ChannelName>
+            <Info>{video.views} {video.views > 1 ? "views" : "view"} . {format(video.createdAt)} </Info>
           </Texts>
         </Details>
       </Container>
