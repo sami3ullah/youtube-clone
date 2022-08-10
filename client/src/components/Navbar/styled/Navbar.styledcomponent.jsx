@@ -25,9 +25,25 @@ export const Search = styled.div`
   justify-content: space-between;
   padding: 5px;
   border: 1px solid ${({ theme }) => theme.soft};
+  color: ${({ theme }) => theme.text};
   border-radius: 3px;
 `;
 export const Input = styled.input`
   border: none;
   background: transparent;
+`;
+
+export const User = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: ${({ theme }) => theme.text};
+`;
+
+export const Avatar = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #999;
 `;

@@ -9,8 +9,10 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import HistoryIcon from "@mui/icons-material/History";
+import {useSelector} from "react-redux";
 
 function MenuIcons({ darkMode, setDarkMode }) {
+const {currentUser} = useSelector(state => state.user)
   return (
     <>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
@@ -40,8 +42,8 @@ function MenuIcons({ darkMode, setDarkMode }) {
         <HistoryIcon />
         History
       </Item>
-      <SignUp />
-      <Hr />
+        { !currentUser && <SignUp /> }
+        <Hr />
       <Title>BEST OF YOUTUBE</Title>
       <BestOfIcons darkMode={darkMode} setDarkMode={setDarkMode} />
     </>

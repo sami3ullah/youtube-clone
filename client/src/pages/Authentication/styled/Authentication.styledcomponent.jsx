@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.soft};
   padding: 20px 50px;
   gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 `;
 
 export const Title = styled.h1`
@@ -34,6 +35,7 @@ export const Input = styled.input`
   padding: 10px;
   background: transparent;
   width: 100%;
+  color: ${({ theme }) => theme.textSoft};
 `;
 export const Button = styled.button`
   border-radius: 3px;

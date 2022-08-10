@@ -24,8 +24,6 @@ function Card({ type, video }) {
       setUserDetails(response);
     })()
   }, [video.userId])
-
-  console.log(userDetails)
   return (
     <Link to="/video/test" style={{ textDecoration: "none" }}>
       <Container type={type}>
